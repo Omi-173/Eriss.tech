@@ -27,6 +27,13 @@
 
 <body id="top">
 
+  <style>
+  body {
+    overflow-x: hidden;
+    width: 100%;
+  }
+</style>
+
  <!-- header ================================================== -->
 <header class="s-header" style="display: flex; justify-content: space-between; align-items: center; padding: 20px 40px;">
 
@@ -94,6 +101,32 @@
         <li><a href="#services" class="menu-link premium-link" style="color: white; text-decoration: none; font-size: 20px; font-weight: 600;">Services</a></li>
         <li><a href="#portfolio" class="menu-link premium-link" style="color: white; text-decoration: none; font-size: 20px; font-weight: 600;">Works</a></li>
     </ul>
+
+    <script>
+// Enable smooth scrolling for menu links
+document.querySelectorAll('.menu-link').forEach(link => {
+  link.addEventListener('click', function (e) {
+    e.preventDefault(); // prevent instant jump
+
+    const targetId = this.getAttribute('href').slice(1); // remove #
+    const targetElement = document.getElementById(targetId);
+
+    if (targetElement) {
+      // Scroll smoothly
+      targetElement.scrollIntoView({ behavior: 'smooth' });
+
+      // Hide the mobile menu after clicking
+      const menu = document.getElementById('mobileMenu');
+      menu.style.opacity = '0';
+      menu.style.transform = 'translateY(-20px)';
+      setTimeout(() => {
+        menu.style.display = 'none';
+      }, 300);
+    }
+  });
+});
+</script>
+
 </div>
 
 <!-- Get In Touch Button -->
@@ -698,11 +731,6 @@ document.addEventListener('DOMContentLoaded', () => {
 </div>
 
 
-
-
-            
-        
-
     </section> <!-- end s-portfolio -->
 
 
@@ -710,35 +738,12 @@ document.addEventListener('DOMContentLoaded', () => {
     ================================================== -->
     <div id="clients" class="section s-clients">
 
-        <!-- <div class="row narrower s-clients__top h-text-center">
-            <div class="column">
-                <h1 class="display-1" data-aos="fade-up">
-                We've had the priveledge with working with
-                some of the largest and most iconic brands
-                </h1>
-            </div>
-        </div>
-
-        <div class="row clients-outer">
-            <div class="column">
-                <div class="clients" data-aos="fade-up">
-                    
-                    <a href="#0" title="" class="clients__slide"><img src="images/moringalogo.png" /></a>
-                    <a href="#0" title="" class="clients__slide"><img src="images/manelogo.png" /></a>
-                    <a href="#0" title="" class="clients__slide"><img src="images/icons/clients/github.svg" /></a>
-                    <a href="#0" title="" class="clients__slide"><img src="images/icons/clients/redhat.svg" /></a>
-                    <a href="#0" title="" class="clients__slide"><img src="images/icons/clients/medium.svg" /></a>
-                    <a href="#0" title="" class="clients__slide"><img src="images/icons/clients/messenger.svg" /></a>
-                    <a href="#0" title="" class="clients__slide"><img src="images/icons/clients/steam.svg" /></a>
-                    <a href="#0" title="" class="clients__slide"><img src="images/icons/clients/spotify.svg" /></a>
-                     
-        </div> 
-            </div> 
-        </div>  -->
+   
 
      <div class="row testimonials collapse">
 
    <!-- Heading for Testimonials -->
+    
 <div class="column large-12" style="text-align: center; margin-bottom: 40px;" data-aos="fade-up">
     <h2 style="font-size: 32px; font-weight: 700; color: #ff2c2c; font-family: 'Segoe UI', sans-serif; margin: 0;">
         What Our Clients Say
@@ -807,31 +812,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-<!-- contact ================================================== -->
-<section class="s-contact-modern-dark">
-  <div class="contact-container-dark">
-    <h3 class="contact-subtitle-dark">Let’s Collaborate</h3>
-    <h1 class="contact-title-dark">Have an idea or project in mind?</h1>
-    <p class="contact-description-dark">
-      We’re always open to discussing your project, improving your online presence,<br>
-      or helping with your UI/UX design needs.
-    </p>
 
-    <a href="mailto:erisstech@gmail.com" class="contact-email-dark">erisstech@gmail.com</a>
-
-    <div class="social-section-dark">
-      <h4 class="social-title-dark">Follow Us</h4>
-      <ul class="social-links-dark">
-        <!-- <li><a href="#0" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a></li> -->
-        <li><a href="https://wa.me/9762847400" target="_blank" aria-label="WhatsApp">
-  <i class="fab fa-whatsapp"></i>
-</a></li>
-        <li><a href="#0" aria-label="Instagram"><i class="fab fa-instagram"></i></a></li>
-        <li><a href="https://www.linkedin.com/in/eriss-tech-090a08370/" aria-label="Linkedin"><i class="fab fa-linkedin"></i></a></li>
-      </ul>
-    </div>
-  </div>
-</section>
 
 <!-- Font Awesome CDN -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -963,93 +944,123 @@ document.addEventListener('DOMContentLoaded', () => {
 <body id="top">
 
   <!-- Scroll to Top Button -->
-  <div class="ss-go-top">
-    <a href="#top" id="scrollBtn" title="Back to Top">
-      <div class="arrow-up" id="arrowUp"></div>
-    </a>
-  </div>
-
-  <style>
-    .ss-go-top {
-      position: fixed;
-      right: 20px;
-      bottom: 30px;
-      z-index: 999;
-    }
-
-    .ss-go-top a {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 70px;
-      height: 70px;
-      background-color: #e81111;
-      border-radius: 50%;
-      box-shadow: 0 0 15px rgba(180, 10, 10, 0.5);
-      text-decoration: none;
-      overflow: hidden;
-      position: relative;
-    }
-
-    .ss-go-top a:hover {
-      box-shadow: 0 0 25px rgba(255, 0, 0, 0.8);
-    }
-
-    .arrow-up {
+<div class="ss-go-top" style="
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 999;">
+  <a href="#top" id="scrollBtn" title="Back to Top" style="
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    background-color: #e81111;
+    border-radius: 50%;
+    box-shadow: 0 0 15px rgba(180, 10, 10, 0.5);
+    text-decoration: none;
+    overflow: hidden;
+    position: relative;">
+    <div class="arrow-up" id="arrowUp" style="
       width: 0;
       height: 0;
-      border-left: 12px solid transparent;
-      border-right: 12px solid transparent;
-      border-bottom: 16px solid white;
+      border-left: 10px solid transparent;
+      border-right: 10px solid transparent;
+      border-bottom: 14px solid white;
       position: relative;
       animation: bounce 1.2s infinite ease-in-out;
-      transition: transform 0.3s ease;
-    }
+      transition: transform 0.3s ease;">
+    </div>
+  </a>
+</div>
 
-    .arrow-up.launching {
-      animation: none;
-      animation: launch 1.2s ease forwards;
-    }
+<!-- Footer Section -->
+<footer style="background:#111; color:#ccc; padding:30px 15px 5px; text-align:center; font-family:'Segoe UI', sans-serif; margin:0; border-top:1px solid #222;">
 
-    @keyframes bounce {
-      0%   { transform: translateY(0); }
-      50%  { transform: translateY(-10px); }
-      100% { transform: translateY(0); }
-    }
+  <!-- Contact Section -->
+  <section style="padding:0; margin:0;">
+    <div style="padding:0; margin:0;">
+      <h3 style="font-size:20px; color:#ff2c2c; margin:10px 0 5px;">Let’s Collaborate</h3>
+      <h1 style="font-size:26px; color:#fff; margin:0 0 10px;">Have an idea or project in mind?</h1>
+      <p style="font-size:14px; color:#aaa; margin:0 0 15px;">
+        We’re always open to discussing your project, improving your online presence,<br>
+        or helping with your UI/UX design needs.
+      </p>
 
-    @keyframes launch {
-      0%   { transform: translateY(0) scale(1); opacity: 1; }
-      30%  { transform: translateY(-30px) scale(1.2); }
-      60%  { transform: translateY(-60px) scale(1.4); }
-      100% { transform: translateY(-100vh) scale(1.6); opacity: 0; }
-    }
-  </style>
+      <a href="mailto:erisstech@gmail.com" style="display:inline-block; color:#ff2c2c; font-weight:bold; text-decoration:none; border:1px solid #ff2c2c; padding:10px 20px; border-radius:50px; margin:10px 0 20px;">erisstech@gmail.com</a>
 
-  <script>
-    const btn = document.getElementById('scrollBtn');
-    const arrow = document.getElementById('arrowUp');
+      <!-- Social Section -->
+      <div style="margin-top:20px;">
+        <h4 style="font-size:16px; color:#fff; margin:10px 0;">Follow Us</h4>
+        <ul style="list-style:none; padding:0; margin:10px 0 0; display:flex; justify-content:center; gap:20px;">
+          <li><a href="https://wa.me/9762847400" target="_blank" style="color:#ff2c2c; font-size:20px;"><i class="fab fa-whatsapp"></i></a></li>
+          <li><a href="#0" style="color:#ff2c2c; font-size:20px;"><i class="fab fa-instagram"></i></a></li>
+          <li><a href="https://www.linkedin.com/in/eriss-tech-090a08370/" style="color:#ff2c2c; font-size:20px;"><i class="fab fa-linkedin"></i></a></li>
+        </ul>
+      </div>
+    </div>
 
-    btn.addEventListener('click', function (e) {
-      e.preventDefault();
+    <!-- Logo + Copyright -->
+    <div style="margin-top:25px; padding:0;">
+      <h2 style="color:#ff2c2c; font-weight:bold; font-size:24px; margin:0;">Eriss.tech</h2>
+      <p style="font-size:13px; margin:5px 0 5px;">Innovating Your Digital Presence</p>
+      <div style="font-size:12px; color:#666;">&copy; 2025 Eriss.tech. All rights reserved.</div>
+    </div>
+  </section>
+</footer>
 
-      // Add launch animation
-      arrow.classList.remove('bounce');
-      arrow.classList.add('launching');
+<!-- Key Bounce + Launch Animations -->
+<style>
+@keyframes bounce {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0); }
+}
 
-      // Scroll to top smoothly
-      document.querySelector('#top').scrollIntoView({ behavior: 'smooth' });
+@keyframes launch {
+  0% { transform: translateY(0) scale(1); opacity: 1; }
+  30% { transform: translateY(-30px) scale(1.2); }
+  60% { transform: translateY(-60px) scale(1.4); }
+  100% { transform: translateY(-100vh) scale(1.6); opacity: 0; }
+}
+</style>
 
-      // Reset after launch
-      setTimeout(() => {
-        arrow.classList.remove('launching');
-        arrow.style.opacity = '1';
-        arrow.style.transform = 'translateY(0) scale(1)';
-      }, 1400);
-    });
-  </script>
+<!-- Scroll Script -->
+<script>
+  const btn = document.getElementById('scrollBtn');
+  const arrow = document.getElementById('arrowUp');
+
+  btn.addEventListener('click', function (e) {
+    e.preventDefault();
+    arrow.classList.remove('bounce');
+    arrow.classList.add('launching');
+    document.querySelector('#top').scrollIntoView({ behavior: 'smooth' });
+    setTimeout(() => {
+      arrow.classList.remove('launching');
+      arrow.style.opacity = '1';
+      arrow.style.transform = 'translateY(0) scale(1)';
+    }, 1400);
+  });
+</script>
+
+<!-- Optional Reset for Spacing -->
+<style>
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    background: #111;
+  }
+</style>
+
+<!-- Font Awesome Icons -->
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+<!-- Top Target Anchor (Ensure this exists at the top of your page) -->
+<div id="top"></div>
 
 
-
+</footer>
 </body>
 
 
