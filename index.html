@@ -27,6 +27,68 @@
 
 <body id="top">
 
+  <!-- Loading Screen -->
+  <div id="loadingScreen" style="
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    transition: opacity 0.5s ease;
+  ">
+    <div style="
+      width: 80px;
+      height: 80px;
+      border: 3px solid #333;
+      border-top: 3px solid #ff3c3c;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin-bottom: 20px;
+    "></div>
+    <div style="
+      color: #fff;
+      font-family: 'Segoe UI', sans-serif;
+      font-size: 18px;
+      font-weight: 600;
+      letter-spacing: 1px;
+    ">ERISS</div>
+    <div style="
+      color: #ff3c3c;
+      font-family: 'Segoe UI', sans-serif;
+      font-size: 14px;
+      margin-top: 5px;
+      opacity: 0.8;
+    ">Loading...</div>
+  </div>
+
+  <style>
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  </style>
+
+  <script>
+  // Loading screen functionality
+  window.addEventListener('load', function() {
+    const loadingScreen = document.getElementById('loadingScreen');
+    
+    // Hide loading screen after 0.2 seconds
+    setTimeout(function() {
+      loadingScreen.style.opacity = '0';
+      setTimeout(function() {
+        loadingScreen.style.display = 'none';
+      }, 500);
+    }, 200);
+  });
+  </script>
+
   <style>
   body {
     overflow-x: hidden;
@@ -735,7 +797,7 @@ document.addEventListener('DOMContentLoaded', () => {
     </section> <!-- end s-portfolio -->
 
     <!-- clients ================================================== -->
-    <section id="clients" class="section s-clients">
+    <section id="clients" class="section s-clients" style="padding-top: 60px;">
       <div class="row testimonials collapse">
         <!-- Heading for Testimonials -->
         <div class="column large-12" style="text-align: center; margin-bottom: 40px;" data-aos="fade-up">
@@ -918,6 +980,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 </body>
+
 
 
     <!-- Footer Styles -->
